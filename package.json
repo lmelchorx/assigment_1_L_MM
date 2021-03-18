@@ -1,0 +1,16 @@
+{
+  "name": "assigment1",
+  "version": "1.0.0",
+  "description": "Testcafe project",
+  "main": "index.js",
+  "scripts": {
+    "test-all-firefox": "testcafe firefox ./page_model/Test/",
+    "test-all-multi": "testcafe firefox,safari,chrome ./page_model/Test/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Melchor",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
