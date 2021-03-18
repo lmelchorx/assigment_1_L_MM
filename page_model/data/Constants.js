@@ -18,3 +18,10 @@ export const USERINFO = {
     LNAME: process.env.LASTNAME,
     ZIP: process.env.ZIPCODE
 }
+
+export const PAGELABELS = {
+    LOGINERROR: 'Epic sadface: Username and password do not match any user in this service',
+    USERINFOERROR:'Error: First Name is required',
+    CHECKOUTLABEL: 'Checkout: Overview',
+    FINISHEDORDER: 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'
+}

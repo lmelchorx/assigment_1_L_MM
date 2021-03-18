@@ -2,7 +2,7 @@ import LoginPage from '../Pages/LoginPage'
 import UserPage from '../Pages/UserPage'
 import LoggedPage from '../Pages/LoggedPage'
 import CheckOutPage from '../Pages/CheckOutPage'
-import { CREDENTIALS, USERINFO } from '../data/Constants'
+import { CREDENTIALS, USERINFO, PAGELABELS } from '../data/Constants'
 
 fixture('Login Feature testing')
     .page `https://www.saucedemo.com/`
@@ -41,7 +41,7 @@ test('users cant continue without fill their info', async t=>{
     await LoggedPage.goToCheckoutPage()
     await CheckOutPage.continueCheckout()
     await t.expect(CheckOutPage.errorChMessage.exists).ok()
-    await t.expect(CheckOutPage.errorChMessage.innerText).eql('Error: First Name is required')
+    await t.expect(CheckOutPage.errorChMessage.innerText).eql(PAGELABELS.USERINFOERROR)
 })
 
 test('users can fill their info and continue with checkout', async t=>{
@@ -53,6 +53,6 @@ test('users can fill their info and continue with checkout', async t=>{
     await LoggedPage.goToCheckoutPage()
     await CheckOutPage.fillUserInfo(USERINFO.FNAME, USERINFO.LNAME, USERINFO.ZIP)
     await CheckOutPage.continueCheckout()
-    await t.expect(CheckOutPage.checkoutOverview.innerText).eql('Checkout: Overview')
+    await t.expect(CheckOutPage.checkoutOverview.innerText).eql(PAGELABELS.CHECKOUTLABEL)
 })
 

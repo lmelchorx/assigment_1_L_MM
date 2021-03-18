@@ -1,7 +1,7 @@
 import LoginPage from '../Pages/LoginPage'
 import UserPage from '../Pages/UserPage'
 import LoggedPage from '../Pages/LoggedPage'
-import { CREDENTIALS } from '../data/Constants'
+import { CREDENTIALS, PAGELABELS } from '../data/Constants'
 
 fixture('Login Feature testing')
     .page `https://www.saucedemo.com/`
@@ -18,7 +18,7 @@ test('Users cannot login using valid credentials', async t => {
         .click(LoginPage.loginButton)
 
     await t.expect(LoginPage.errorMessage.exists).ok()
-    await t.expect(LoginPage.errorMessage.innerText).eql('Epic sadface: Username and password do not match any user in this service')
+    await t.expect(LoginPage.errorMessage.innerText).eql(PAGELABELS.LOGINERROR)
 } )
 
 test('Users can log out from products page', async t => {

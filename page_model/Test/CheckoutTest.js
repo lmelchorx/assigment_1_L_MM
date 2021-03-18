@@ -3,7 +3,7 @@ import UserPage from '../Pages/UserPage'
 import LoggedPage from '../Pages/LoggedPage'
 import CheckOutPage from '../Pages/CheckOutPage'
 import FinalOrderPage from '../Pages/FinalOrderPage'
-import { CREDENTIALS, USERINFO } from '../data/Constants'
+import { CREDENTIALS, USERINFO, PAGELABELS } from '../data/Constants'
 fixture('Login Feature testing')
     .page `https://www.saucedemo.com/`
 
@@ -27,8 +27,8 @@ test('User can purchase the items', async t=>{
     await LoggedPage.goToCheckoutPage()
     await CheckOutPage.fillUserInfo(USERINFO.FNAME, USERINFO.LNAME, USERINFO.ZIP)
     await CheckOutPage.continueCheckout()
-    await t.expect(CheckOutPage.checkoutOverview.innerText).eql('Checkout: Overview')
+    await t.expect(CheckOutPage.checkoutOverview.innerText).eql(PAGELABELS.CHECKOUTLABEL)
     await FinalOrderPage.finishOrder()
-    await t.expect(FinalOrderPage.finishLabelMsg.innerText).eql('Your order has been dispatched, and will arrive just as fast as the pony can get there!')
+    await t.expect(FinalOrderPage.finishLabelMsg.innerText).eql(PAGELABELS.FINISHEDORDER)
 })
 
